@@ -78,33 +78,43 @@ function App() {
 
 function Navbar({ user, onLogout, setCurrentPage, currentPage }) {
   return (
-    <nav className="bg-white shadow-sm border-b sticky top-0 z-50">
+    <nav className="bg-white shadow-lg border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
-            <h1 className="text-2xl font-bold text-blue-600">LinkedInClone</h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+              AppDost
+            </h1>
             <button
               onClick={() => setCurrentPage('feed')}
-              className={`flex items-center space-x-2 px-3 py-2 rounded-md transition ${currentPage === 'feed' ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50'}`}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                currentPage === 'feed' 
+                  ? 'bg-blue-600 text-white shadow-md transform scale-105' 
+                  : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+              }`}
             >
               <Home size={20} />
-              <span className="hidden sm:inline">Feed</span>
+              <span className="hidden sm:inline font-medium">Feed</span>
             </button>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             <button
               onClick={() => setCurrentPage('profile')}
-              className={`flex items-center space-x-2 px-3 py-2 rounded-md transition ${currentPage === 'profile' ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50'}`}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                currentPage === 'profile' 
+                  ? 'bg-blue-600 text-white shadow-md transform scale-105' 
+                  : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+              }`}
             >
               <User size={20} />
-              <span className="hidden sm:inline">{user.name}</span>
+              <span className="hidden sm:inline font-medium">{user.name}</span>
             </button>
             <button
               onClick={onLogout}
-              className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md transition"
+              className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200"
             >
               <LogOut size={20} />
-              <span className="hidden sm:inline">Logout</span>
+              <span className="hidden sm:inline font-medium">Logout</span>
             </button>
           </div>
         </div>

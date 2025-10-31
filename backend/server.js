@@ -6,11 +6,18 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 require('dotenv').config();
-
+const fs = require('fs');
+const uploadsDir = './uploads';
+if (!fs.existsSync(uploadsDir)){
+    fs.mkdirSync(uploadsDir);
+}
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://app-dost-teal.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 

@@ -4,7 +4,7 @@ import { Home, LogOut, User, ThumbsUp, MessageCircle, Edit2, Trash2, Send } from
 // IMPORTANT: Change this to your backend URL
 // For local development: http://localhost:5000/api
 // For production: https://your-backend-url.com/api
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://appdost-production.up.railway.app/api';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
